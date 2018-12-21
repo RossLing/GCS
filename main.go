@@ -21,7 +21,7 @@ const (
 	POST_TYPE = "post"
 	DISTANCE = "200km"
     // Needs to update this URL if you deploy it to cloud.
-    ES_URL = "http://35.232.159.58:9200/" 
+    ES_URL = "http://104.197.218.90:9200/" 
 	BUCKET_NAME = "post-image-0011"
 )
 
