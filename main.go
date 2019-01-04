@@ -215,8 +215,8 @@ func readFromES(lat, lon float64, ran string) ([]Post, error) {
 
 func saveToGCS(r io.Reader, bucketName, objectName string) (*storage.ObjectAttrs, error) {
 	ctx := context.Background()
-	
-	client,err := storage.NewClient(ctx)
+	// Creates a client.
+	client, err := storage.NewClient(ctx, option.WithCredentialsFile("key.json"))
 	if err != nil {
 		return nil,err
 	}
