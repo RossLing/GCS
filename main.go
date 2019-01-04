@@ -21,7 +21,7 @@ const (
 	POST_TYPE = "post"
 	DISTANCE = "200km"
     // Needs to update this URL if you deploy it to cloud.
-    ES_URL = "http://104.197.218.90:9200/" 
+    ES_URL = "http://35.224.186.53:9200"
 	BUCKET_NAME = "post-image-0011"
 )
 
@@ -46,11 +46,12 @@ func main() {
     log.Fatal(http.ListenAndServe(":8080", nil))
       
 }
-func createIndexIfNotExist(){
-	client, err := elastic.NewClient(elastic.SetURL(ES_URL),elastic.SetSniff(false))
-	if err != nil {
-		panic(err)
-	}
+func createIndexIfNotExist() {
+    client, err := elastic.NewClient(elastic.SetURL(ES_URL), elastic.SetSniff(false))
+    if err != nil {
+        panic(err)
+    }
+
 
 	exists,err := client.IndexExists(POST_INDEX).Do(context.Background())
 	if err != nil {
